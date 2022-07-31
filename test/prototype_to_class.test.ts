@@ -2,7 +2,7 @@
 // import { expect } from 'chai';
 import { expect } from "chai";
 import { Classifier } from "../src/prototype_to_class";
-import { TestCase, tc251, tc348, tc641, tc642Trie, tc642Main, tc2254empty } from './prototype_to_class.data';
+import { TestCase, tc251, tc348, tc641, tc642Trie, tc642Main, tc2254empty, tc307func } from './prototype_to_class.data';
 
 function test(tc: TestCase) {
     const classifier_ = new Classifier();
@@ -21,6 +21,10 @@ describe('tests', ()=> {
 
     it('Leetcode 251. Flatten 2D Vector, empty', () => {
         test(tc251);
+	});
+
+    it.only('Leetcode 307. Range Sum Query - Mutable, function', () => {
+        test(tc307func);
 	});
 
     it('Leetcode 348. Design Tic-Tac-Toe, finished', () => {

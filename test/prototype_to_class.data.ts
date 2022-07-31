@@ -521,3 +521,61 @@ class VideoSharingPlatform {
     }
 }
 `;
+
+
+export const tc307func = new TestCase();
+tc307func.input = `
+/**
+ * @param {number[]} nums
+ */
+function NumArray(nums) {
+    
+}
+
+/** 
+ * @param {number} index 
+ * @param {number} val
+ * @return {void}
+ */
+NumArray.prototype.update = function(index, val) {
+    
+};
+
+/** 
+ * @param {number} left 
+ * @param {number} right
+ * @return {number}
+ */
+NumArray.prototype.sumRange = function(left, right) {
+    
+};
+`
+
+tc307func.expected = `
+class NumArray {
+    /**
+     * @param {number[]} nums
+     */
+    constructor(nums) {
+
+    }
+
+    /** 
+     * @param {number} index 
+     * @param {number} val
+     * @return {void}
+     */
+    update(index, val) {
+
+    }
+
+    /** 
+     * @param {number} left 
+     * @param {number} right
+     * @return {number}
+     */
+    sumRange(left, right) {
+
+    }
+}
+`

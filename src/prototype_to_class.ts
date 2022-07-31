@@ -4,10 +4,6 @@ export class Classifier {
     oldCtor: string = '';
     oldMethods: string[] = [];
 
-    constructor() {
-        this.className = '';
-    }
-
     parseClassName() {
         const match1 = this.oldCode.match(/(var|let|const)\s*([a-zA-Z0-9]*)\s*=\s*function/);
         if (match1 !== null) {
@@ -15,11 +11,13 @@ export class Classifier {
             return;
         }
 
-        const match2 = this.oldCode.match(/function\s*([a-zA-Z0-9]+)\s\(/);
+        const match2 = this.oldCode.match(/function\s*([a-zA-Z0-9]+)\s*\(/);
         if (match2 !== null) {
             this.className = match2[1];
             return;
         }
+
+        throw new Error('Failed to determine class name.');
     }
 
     format(s: string) {
@@ -103,7 +101,7 @@ export class Classifier {
     }
 
     toClass(oldCode: string): string {
-        if (oldCode === '' || oldCode == null) {
+        if (oldCode === '' || oldCode === null || oldCode === undefined) {
             return oldCode;
         }
         this.oldCode = oldCode;
@@ -117,7 +115,7 @@ class ${this.className} {
 
         for (const oldMethod of this.oldMethods) {
             const newMethod = this.getNewMethod(oldMethod);
-            if (newMethod == null) {
+            if (newMethod === null) {
                 continue;
             }
 
